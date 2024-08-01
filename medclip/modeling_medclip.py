@@ -182,7 +182,7 @@ class MedCLIPModel(nn.Module):
             print('\n Download pretrained model from:', pretrained_url)
         
         state_dict = torch.load(os.path.join(input_dir, constants.WEIGHTS_NAME))
-        self.load_state_dict(state_dict)
+        self.load_state_dict(state_dict, strict=False)
         print('load model weight from:', input_dir)
 
     def encode_text(self, input_ids=None, attention_mask=None):
